@@ -26,8 +26,8 @@ public class Move extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.driveTrain.setLeftMotors(m_lspeed);
-    Robot.driveTrain.setRightMotors(m_rspeed);
+    Robot.driveTrain.setLeftMotors(-m_lspeed);
+    Robot.driveTrain.setRightMotors(-m_rspeed);
     setTimeout(m_time);
  
  

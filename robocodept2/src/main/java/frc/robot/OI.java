@@ -12,13 +12,14 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import frc.robot.commands.Climber;
 import frc.robot.commands.IntakeIn;
 import frc.robot.commands.IntakeOut;
 import frc.robot.commands.Move;
 import frc.robot.commands.Shooter;
 import frc.robot.commands.TankDrive;
+import frc.robot.subsystems.IntakeSub;
 import frc.robot.subsystems.ShooterSub;
 import frc.robot.subsystems.SpindexerSubsystem;
 
@@ -55,14 +56,16 @@ private XboxController driverController = new XboxController(RobotMap.DriverCont
 
 }
  
- 
-
+private void configureButtonBindings() {
+IntakeSub.setDefaultCommand(new RunCommand(() -> IntakeSub.setSpeed(() -> driverController.getRightStickY() * 0.5,
+() -> driverController.getRightTrigger() - driverController.getLeftTrigger()), IntakeSub));
+}
 public OI() {
     
       ButtonLB.whileHeld(new IntakeOut());
       ButtonA.whileHeld(new Shooter());
       ButtonB.whenPressed(new Climber());
-     
+      ButtonX.whenPressed(new Move(4,0.5,0.5));
   
   
    }
