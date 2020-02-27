@@ -19,7 +19,7 @@ public class IntakeOut extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.IntakeSub.setSpeed(0.5);
+    Robot.IntakeSub.setSpeed(-0.5);
   
   }
 

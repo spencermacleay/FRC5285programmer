@@ -10,6 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class IntakeIn extends Command {
   public IntakeIn() {
@@ -20,16 +21,15 @@ public class IntakeIn extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.IntakeSub.setSpeed(-0.5);
-  
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-  double leftTrigger = Robot.m_oi.getTriggerAxisLeft(Hand.kLeft);
-  
-    Robot.IntakeSub.setSpeed(leftTrigger);
+   
+    Robot.IntakeSub.setSpeed(1);
+ 
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -41,7 +41,7 @@ public class IntakeIn extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-
+    Robot.IntakeSub.setSpeed(0);
  
   }
 

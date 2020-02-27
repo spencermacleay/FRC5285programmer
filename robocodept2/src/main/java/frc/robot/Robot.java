@@ -12,8 +12,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.IntakeSub;
+import frc.robot.subsystems.ClimberSub;
 import frc.robot.subsystems.ShooterSub;
-import frc.robot.subsystems.BallSpinnerSub;
+import frc.robot.subsystems.SpindexerSubsystem;
+
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -25,8 +28,9 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
   public static IntakeSub IntakeSub = new IntakeSub();
   public static ShooterSub ShooterSub = new ShooterSub();
-  public static BallSpinnerSub BallSpinnerSub = new BallSpinnerSub();
+  public static SpindexerSubsystem SpindexerSubsystem = new SpindexerSubsystem();
   
+  public static ClimberSub ClimberSub = new ClimberSub();
   public static OI m_oi;
 
  
@@ -38,7 +42,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    OI.m_encoder.setDistancePerPulse((Math.PI * 6) / 360.0);
+   
   }
 
   /**
@@ -51,7 +55,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    SmartDashboard.putNumber("Encoder", OI.m_encoder.getDistance());
+    
   
   }
 

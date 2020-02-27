@@ -12,10 +12,16 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.BallSpinner;
+
+import frc.robot.commands.Climber;
 import frc.robot.commands.IntakeIn;
 import frc.robot.commands.IntakeOut;
 import frc.robot.commands.Move;
+import frc.robot.commands.Shooter;
+import frc.robot.commands.TankDrive;
+import frc.robot.subsystems.ShooterSub;
+import frc.robot.subsystems.SpindexerSubsystem;
+
 
 
 
@@ -30,47 +36,37 @@ import frc.robot.commands.Move;
  */
 public class OI {
 
-
+  
 
 private XboxController driverController = new XboxController(RobotMap.DriverController);
+
+
+
    Button ButtonX = new JoystickButton(driverController, RobotMap.ButtonX);
    Button ButtonLB = new JoystickButton(driverController, RobotMap.ButtonLB);
    Button ButtonY = new JoystickButton(driverController, RobotMap.ButtonY);
    Button ButtonA = new JoystickButton(driverController, RobotMap.ButtonA);
-   public static Encoder m_encoder = new Encoder(RobotMap.kEncoderPortA, RobotMap.kEncoderPortB);
+   Button ButtonB = new JoystickButton(driverController, RobotMap.ButtonB);
+   
    public double GetDriverRawAxis(int axis){
    return driverController.getRawAxis(axis);
 
 
 
 }
-   
-public double getTriggerAxisLeft(Hand kleft){
-   return driverController.getTriggerAxis(Hand.kLeft);
-
-
-
-}
-
-
-public double getTriggerAxisRight(Hand kRight){
-   return driverController.getTriggerAxis(Hand.kRight);
-
-
-
-}
+ 
+ 
 
 public OI() {
-      ButtonX.whenPressed(new Move(4, 1 ,1));
+    
       ButtonLB.whileHeld(new IntakeOut());
-      ButtonA.whileHeld(new BallSpinner());
-      
+      ButtonA.whileHeld(new Shooter());
+      ButtonB.whenPressed(new Climber());
+     
+  
+  
    }
 
-
-
-
-
-
+  
 
 }

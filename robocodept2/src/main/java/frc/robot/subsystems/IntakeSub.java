@@ -19,7 +19,7 @@ public class IntakeSub extends Subsystem {
   // here. Call these from Commands.
 
 
-Spark intakemotor = new Spark(9);
+Spark intakemotor = new Spark(0);
 
 
 

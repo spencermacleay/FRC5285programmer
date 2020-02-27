@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.controller.SimpleMotorFeedforward;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -17,23 +18,52 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
  */
 public class RobotMap {
 
-	public static final int MotorLeft1ID = 7;
-	public static final int MotorLeft2ID = 11;
-	public static final int MotorRight1ID = 6;
-	public static final int MotorRight2ID = 10;
+	public static final int MotorLeft1ID = 5;
+	public static final int MotorLeft2ID = 4;
+	public static final int MotorRight1ID = 3;
+	public static final int MotorRight2ID = 1;
 	public static final int DriverController = 0;
 	public static final int LeftStickY = 1;
 	public static final int RightStickY = 5;
 	public static final int ButtonX = 3;
 	public static final int ButtonLB = 5;
 	public static final int ButtonY = 4;
-	public static final int shooterMotorLeft2ID = 0;
-	public static final int shooterMotorLeft1ID = 0;
-	public static final int shooterMotorRight1ID = 0;
-	public static final int shooterMotorRight2ID = 0;
-	public static final int kEncoderPortA = 0;
-	public static final int kEncoderPortB = 1;
 	public static final int ButtonA = 1;
+
+	public static final int climberMotor1ID = 8;
+	public static final int climberMotor2ID = 9;
+	public static final int ButtonB = 2;
+
+	public static final int ShooterRight1 = 5;
+	public static final int ShooterRight2 = 4;
+	public static final int ShooterLeft1 = 3;
+	public static final int ShooterLeft2 = 2;
+
+
+
+
 	
+
+
+
+
+
+
+	public static class SpindexerConstants {
+        public static final int kSpindexerCANID = 10;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -7,8 +7,12 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.SparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.PWMSparkMax;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.TankDrive;
@@ -17,13 +21,10 @@ import frc.robot.commands.TankDrive;
  * Add your docs here.
  */
 public class DriveTrain extends Subsystem {
-  private VictorSPX motorLeft1 = new VictorSPX(RobotMap.MotorLeft1ID);
-  private VictorSPX motorLeft2 = new VictorSPX(RobotMap.MotorLeft2ID);
-  private VictorSPX motorRight1 = new VictorSPX(RobotMap.MotorRight1ID);
-  private VictorSPX motorRight2 = new VictorSPX(RobotMap.MotorRight2ID);
-  //private VictorSPX TestMotor = new VictorSPX(RobotMap.TestMotorID);
-
-
+  private PWMSparkMax motorLeft1 = new PWMSparkMax(RobotMap.MotorLeft1ID);
+  private PWMSparkMax motorLeft2 = new PWMSparkMax(RobotMap.MotorLeft2ID);
+  private PWMSparkMax motorRight1 = new PWMSparkMax(RobotMap.MotorRight1ID);
+  private PWMSparkMax motorRight2 = new PWMSparkMax(RobotMap.MotorRight2ID);
 
 
 
@@ -34,32 +35,17 @@ public class DriveTrain extends Subsystem {
   }
 
   public void setLeftMotors(double speed) {
-    if (Math.abs(speed) < 0.1){
-    speed = 0;
-    }
-    motorLeft1.set(ControlMode.PercentOutput, -speed);
-    motorLeft2.set(ControlMode.PercentOutput, -speed);
-
-   
     
+    motorLeft1.set(-speed);
+    motorLeft2.set(-speed);
+
+  }
+
+  public void setRightMotors(double speed) {
+  
+    motorRight1.set(speed);
+    motorRight2.set(speed);
  
-  }
-  
-
-public void setRightMotors(double speed) {
-  if (Math.abs(speed) < 0.1){
-    speed = 0;
-  }
-
-  motorRight1.set(ControlMode.PercentOutput, speed);
-  motorRight2.set(ControlMode.PercentOutput, speed);
-
-  
-  
-
-
-
-
 }
 
 

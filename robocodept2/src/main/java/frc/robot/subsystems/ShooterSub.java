@@ -10,94 +10,42 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.Shooter;
 
 /**
  * Add your docs here.
  */
 public class ShooterSub extends Subsystem {
-  private TalonSRX shootermotorLeft1 = new TalonSRX(RobotMap.shooterMotorLeft1ID);
-  private TalonSRX shootermotorLeft2 = new TalonSRX(RobotMap.shooterMotorLeft2ID);
-  private TalonSRX shootermotorRight1 = new TalonSRX(RobotMap.shooterMotorRight1ID);
-  private TalonSRX shootermotorRight2 = new TalonSRX(RobotMap.shooterMotorRight2ID);
- 
- 
- 
- 
- 
- 
- 
- 
+   double setpoint;
+  
+  private TalonSRX ShooterRight1 = new TalonSRX(RobotMap.ShooterRight1);
+  private TalonSRX ShooterRight2 = new TalonSRX(RobotMap.ShooterRight2);
+  private TalonSRX ShooterLeft1 = new TalonSRX(RobotMap.ShooterLeft1);
+  private TalonSRX ShooterLeft2 = new TalonSRX(RobotMap.ShooterLeft2);
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    //setDefaultCommand(new Shooter(1));
   }
+  public void setRightShooterMotors(double speed){
 
+    ShooterRight1.set(ControlMode.PercentOutput, speed);
+    ShooterRight2.set(ControlMode.PercentOutput, speed);
+  }
+  
+    public void setLeftShooterMotors(double speed){
 
-  public void setshooterLeftMotors(double speed) {
-    if (Math.abs(speed) < 0.1){
-    speed = 0;
+      ShooterLeft1.set(ControlMode.PercentOutput, speed);
+      ShooterLeft2.set(ControlMode.PercentOutput, speed);
     }
-    shootermotorLeft1.set(ControlMode.PercentOutput, -speed);
-    shootermotorLeft2.set(ControlMode.PercentOutput, -speed);
-
-   
     
+
+  
+  
   }
-
-
-  public void setshooterRightMotors(double speed) {
-    
-    shootermotorRight1.set(ControlMode.PercentOutput, -speed);
-    shootermotorRight2.set(ControlMode.PercentOutput, -speed);
-
-   
-    
-  }
-
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

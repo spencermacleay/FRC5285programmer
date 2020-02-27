@@ -6,17 +6,28 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.command.Subsystem;
 
-/*
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+
+import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+
+/**
  * Add your docs here.
  */
-public class BallSpinnerSub extends Subsystem {
+public class ClimberSub extends Subsystem {
   
-  Spark ballspinnermotor = new Spark(0);
-  
-  
+
+  private VictorSPX climbermotor1 = new VictorSPX(RobotMap.climberMotor1ID);
+  private VictorSPX climbermotor2 = new VictorSPX(RobotMap.climberMotor2ID);
+
+
+
+
+
+
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
@@ -24,17 +35,28 @@ public class BallSpinnerSub extends Subsystem {
   }
 
 
-  public void setSpeed(double speed){
-    speed = 0.2;
-    ballspinnermotor.set(speed);
-    
+  public void setclimbermotors(double speed){
 
+    climbermotor1.set(ControlMode.PercentOutput, speed);
+    climbermotor2.set(ControlMode.PercentOutput, speed);
+  
+  
+  
+  
+  
   }
 
-  public void setballspinnerSpeed(double speedwhenpressed){
 
-    ballspinnermotor.set(speedwhenpressed);
-  }
+
+
+
+
+
+
+
+
+
+
 
 
 }

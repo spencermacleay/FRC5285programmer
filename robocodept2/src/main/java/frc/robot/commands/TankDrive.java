@@ -34,8 +34,8 @@ public class TankDrive extends Command {
     double rightStickY= Robot.m_oi.GetDriverRawAxis(RobotMap.RightStickY);
   
   
-    Robot.driveTrain.setLeftMotors(leftStickY*leftStickY*leftStickY/Math.abs(leftStickY));
-   Robot.driveTrain.setRightMotors(rightStickY*rightStickY*rightStickY/Math.abs(rightStickY));
+  Robot.driveTrain.setLeftMotors(leftStickY*leftStickY*leftStickY/Math.abs(leftStickY));
+  Robot.driveTrain.setRightMotors(rightStickY*rightStickY*rightStickY/Math.abs(rightStickY));
 
     
   }
@@ -50,7 +50,7 @@ public class TankDrive extends Command {
   @Override
   protected void end() {
   Robot.driveTrain.setLeftMotors(0);
-  Robot.driveTrain.setLeftMotors(0);
+  Robot.driveTrain.setRightMotors(0);
 
   
   }
@@ -59,6 +59,6 @@ public class TankDrive extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-  this.end();
+  end();
    }
 }

@@ -30,12 +30,10 @@ public class Shooter extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double rightTrigger= Robot.m_oi.getTriggerAxisRight(Hand.kRight);
     
-  
-  
-    Robot.ShooterSub.setshooterLeftMotors(rightTrigger);
-    Robot.ShooterSub.setshooterRightMotors(rightTrigger);
+    
+    Robot.ShooterSub.setRightShooterMotors(0.5);
+    Robot.ShooterSub.setLeftShooterMotors(0.5);
 
     
   }
@@ -49,8 +47,8 @@ public class Shooter extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-  Robot.ShooterSub.setshooterLeftMotors(0);
-  Robot.ShooterSub.setshooterRightMotors(0);
+  Robot.ShooterSub.setRightShooterMotors(0);
+  Robot.ShooterSub.setLeftShooterMotors(0);
 
 
   
